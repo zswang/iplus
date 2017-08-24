@@ -1,0 +1,52 @@
+{
+  "name": "iplus",
+  "description": "Timestamp based GUID.",
+  "version": "0.0.1",
+  "homepage": "http://github.com/zswang/iplus",
+  "main": "iplus.js",
+  "author": {
+    "name": "zswang",
+    "url": "http://weibo.com/zswang"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zswang/iplus.git"
+  },
+  "keywords": [
+    "guid",
+    "mini"
+  ],
+  "bugs": {
+    "url": "https://github.com/zswang/iplus/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-examplejs": "0.0.9",
+    "gulp-jdists": "^2.0.17",
+    "gulp-rename": "^1.2.2",
+    "gulp-typescript": "^3.1.6",
+    "gulp-uglify": "^2.1.2",
+    "typescript": "^2.0.3",
+    "mocha": "^2.0.1",
+    "istanbul": "^0.3.17",
+    "should": "^4.1.0",
+    "uglify-js": "^2.4.15",
+    "jshint": "^2.5.8"
+  },
+  "scripts": {
+    "_update_version": "node version.js",
+    "_dist": "gulp dist",
+    "lint": "jshint src/*.js",
+    "test": "istanbul cover --hook-run-in-context node_modules/mocha/bin/_mocha -- -R spec",
+    "example": "gulp example",
+    "mocha": "mocha",
+    "dist": "npm run _update_version && npm run example && npm run _dist && npm run test"
+  },
+  "files": [
+    "iplus.js",
+    "iplus.min.js",
+    "src/ts"
+  ]
+}
