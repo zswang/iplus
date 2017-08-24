@@ -1,24 +1,14 @@
 (function (exportName) {
   /*<function name="newGuid">*/
-/*<jdists encoding="ejs" data="../../package.json">*/
 /**
- * @file <%- name %>
- <% if (typeof repository != 'undefined') { %>
- * @url <%- repository.url %>
- <% } %>
- * <%- description %>
+ * @file iplus
+ * @url https://github.com/zswang/iplus.git
+ * Timestamp based GUID.
  * @author
-     <% (author instanceof Array ? author : [author]).forEach(function (item) { %>
- *   <%- item.name %> (<%- item.url %>)
-     <% }); %>
- * @version <%- version %>
-     <% var now = new Date() %>
- * @date <%- [
-      now.getFullYear(),
-      now.getMonth() + 101,
-      now.getDate() + 100
-    ].join('-').replace(/-1/g, '-') %>
- * @license <%- license %>
+ *   zswang (http://weibo.com/zswang)
+ * @version 0.0.2
+ * @date 2017-08-24
+ * @license MIT
  */
 /**
  * 比较大的概率上，生成唯一 ID

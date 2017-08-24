@@ -1,7 +1,7 @@
 {
   "name": "iplus",
   "description": "Timestamp based GUID.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "http://github.com/zswang/iplus",
   "main": "iplus.js",
   "author": {

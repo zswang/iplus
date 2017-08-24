@@ -19,6 +19,7 @@
     ].join('-').replace(/-1/g, '-') %>
  * @license <%- license %>
  */
+/*</jdists>*/
 /**
  * 比较大的概率上，生成唯一 ID
  *
