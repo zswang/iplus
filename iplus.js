@@ -6,8 +6,8 @@
  * Timestamp based GUID.
  * @author
  *   zswang (http://weibo.com/zswang)
- * @version 0.0.2
- * @date 2017-08-24
+ * @version 0.0.3
+ * @date 2017-08-30
  * @license MIT
  */
 /**

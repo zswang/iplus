@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /*<function name="newGuid">*/
 /**
  * @file iplus
@@ -29,12 +27,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
   // > true
   ```
   */
-var newGuid = (function () {
-    var guid = Math.floor(Math.random() * 36);
-    return function newGuid(prefix, suffix) {
-        if (prefix === void 0) { prefix = ''; }
-        if (suffix === void 0) { suffix = ''; }
-        return prefix + Date.now().toString(36) + (guid++ % 36).toString(36) + Math.random().toString(36).slice(2, 4) + suffix;
-    };
-})(); /*</function>*/
-exports.newGuid = newGuid;
+  let newGuid = (function () {
+    let guid = Math.floor(Math.random() * 36)
+    return function newGuid(prefix: string = '', suffix: string = ''): string {
+      return prefix + Date.now().toString(36) + (guid++ % 36).toString(36) + Math.random().toString(36).slice(2, 4) + suffix
+    }
+  })() /*</function>*/
+  export {
+    newGuid
+  }

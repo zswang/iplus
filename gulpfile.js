@@ -13,6 +13,8 @@ const typescript = require('gulp-typescript')
 
 gulp.task('build', function (done) {
   gulp.src('./src/ts/*.ts')
+    .pipe(jdists())
+    .pipe(gulp.dest('./'))
     .pipe(typescript({
       target: 'ES5'
     }))

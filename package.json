@@ -1,9 +1,9 @@
 {
   "name": "iplus",
   "description": "Timestamp based GUID.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "http://github.com/zswang/iplus",
-  "main": "iplus.js",
+  "main": "iplus",
   "author": {
     "name": "zswang",
     "url": "http://weibo.com/zswang"
@@ -47,6 +47,6 @@
   "files": [
     "iplus.js",
     "iplus.min.js",
-    "src/ts"
+    "iplus.ts"
   ]
 }
