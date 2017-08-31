@@ -49,6 +49,7 @@
   "files": [
     "iplus.js",
     "iplus.min.js",
-    "iplus.ts"
+    "iplus.ts",
+    "iplus.d.ts"
   ]
 }
