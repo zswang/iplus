@@ -10,16 +10,21 @@ const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
 const examplejs = require('gulp-examplejs')
 const typescript = require('gulp-typescript')
+const merge2 = require('merge2')
 
-gulp.task('build', function (done) {
-  gulp.src('./src/ts/*.ts')
+gulp.task('build', function () {
+  var tsResult = gulp.src('./src/ts/*.ts')
     .pipe(jdists())
     .pipe(gulp.dest('./'))
     .pipe(typescript({
-      target: 'ES5'
+      target: 'ES5',
+      declaration: true,
     }))
-    .pipe(gulp.dest('./src/js'))
-    .on('end', done)
+
+  return merge2([
+    tsResult.dts.pipe(gulp.dest('./')),
+    tsResult.js.pipe(gulp.dest('./'))
+  ]);
 })
 
 gulp.task('jdists', ['build'], function () {

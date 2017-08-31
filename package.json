@@ -1,9 +1,10 @@
 {
   "name": "iplus",
   "description": "Timestamp based GUID.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "http://github.com/zswang/iplus",
   "main": "iplus",
+  "typings": "iplus.d.ts",
   "author": {
     "name": "zswang",
     "url": "http://weibo.com/zswang"
@@ -28,12 +29,13 @@
     "gulp-rename": "^1.2.2",
     "gulp-typescript": "^3.1.6",
     "gulp-uglify": "^2.1.2",
-    "typescript": "^2.0.3",
-    "mocha": "^2.0.1",
     "istanbul": "^0.3.17",
+    "jshint": "^2.5.8",
+    "merge2": "^1.1.0",
+    "mocha": "^2.0.1",
     "should": "^4.1.0",
-    "uglify-js": "^2.4.15",
-    "jshint": "^2.5.8"
+    "typescript": "^2.0.3",
+    "uglify-js": "^2.4.15"
   },
   "scripts": {
     "_update_version": "node version.js",

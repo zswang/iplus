@@ -1,4 +1,3 @@
-/*<function name="newGuid">*/
 /**
  * @file iplus
  * @url https://github.com/zswang/iplus.git
@@ -27,12 +26,5 @@
   // > true
   ```
   */
-  let newGuid = (function () {
-    let guid = Math.floor(Math.random() * 36)
-    return function newGuid(prefix: string = '', suffix: string = ''): string {
-      return prefix + Date.now().toString(36) + (guid++ % 36).toString(36) + Math.random().toString(36).slice(2, 4) + suffix
-    }
-  })() /*</function>*/
-  export {
-    newGuid
-  }
+declare let newGuid: (prefix?: string, suffix?: string) => string;
+export { newGuid };
