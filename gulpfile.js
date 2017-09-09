@@ -1,7 +1,7 @@
 /*jshint globalstrict: true*/
 /*global require*/
 
-'use strict';
+'use strict'
 
 const gulp = require('gulp')
 const util = require('util')
@@ -10,44 +10,50 @@ const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
 const examplejs = require('gulp-examplejs')
 const typescript = require('gulp-typescript')
+const replace = require('gulp-replace')
 const merge2 = require('merge2')
+const packageInfo = require('./package')
 
 gulp.task('build', function () {
-  var tsResult = gulp.src('./src/ts/*.ts')
+  var tsResult = gulp.src('src/*.ts')
     .pipe(jdists())
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('lib'))
     .pipe(typescript({
       target: 'ES5',
       declaration: true,
+      module: 'umd',
     }))
 
   return merge2([
-    tsResult.dts.pipe(gulp.dest('./')),
-    tsResult.js.pipe(gulp.dest('./'))
-  ]);
-})
-
-gulp.task('jdists', ['build'], function () {
-  gulp.src('./src/iplus.jdists.js')
-    .pipe(jdists())
-    .pipe(rename('iplus.js'))
-    .pipe(gulp.dest('./'))
+    tsResult.dts.pipe(gulp.dest('lib')),
+    tsResult.js
+      .pipe(replace(
+        /(\(function\s*\()(factory\)\s*\{)/, '$1root, $2\n    /* istanbul ignore next */'
+      ))
+      .pipe(replace(
+        /(define\(\["require",\s*"exports"\],\s*factory\);\s*\})/, '$1 else { factory(null, root["' + packageInfo.name + '"] = {}); }'
+      ))
+      .pipe(replace(
+        /(\s*\}\s*\)\s*\()(function\s*\(require,\s*exports\)\s*\{)/, '$1this, $2'
+      ))
+      .pipe(gulp.dest('lib'))
+  ])
 })
 
 gulp.task('uglify', function () {
-  gulp.src('iplus.js')
+  gulp.src('lib/iplus.js')
     .pipe(uglify())
     .pipe(rename('iplus.min.js'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('lib'))
 })
 
 gulp.task('example', function () {
   return gulp.src([
-    'src/ts/*.ts'
+    'src/*.ts'
   ])
     .pipe(examplejs({
       header: `
-global.iplus = require('../iplus.js');
+global.iplus = require('../')
       `
     }))
     .pipe(rename({
@@ -56,4 +62,4 @@ global.iplus = require('../iplus.js');
     .pipe(gulp.dest('test'))
 })
 
-gulp.task('dist', ['jdists', 'uglify'])
+gulp.task('dist', ['build', 'example', 'uglify'])

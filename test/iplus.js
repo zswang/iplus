@@ -1,8 +1,8 @@
 
-global.iplus = require('../iplus.js');
+global.iplus = require('../')
       
 
-describe("src/ts/iplus.ts", function () {
+describe("src/iplus.ts", function () {
   var assert = require('should');
   var util = require('util');
   var examplejs_printLines;

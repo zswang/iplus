@@ -1,14 +1,25 @@
 /*<function name="newGuid">*/
+/*<jdists encoding="ejs" data="../package.json">*/
 /**
- * @file iplus
- * @url https://github.com/zswang/iplus.git
- * Timestamp based GUID.
+ * @file <%- name %>
+ <% if (typeof repository != 'undefined') { %>
+ * @url <%- repository.url %>
+ <% } %>
+ * <%- description %>
  * @author
- *   zswang (http://weibo.com/zswang)
- * @version 0.0.4
- * @date 2017-08-31
- * @license MIT
+     <% (author instanceof Array ? author : [author]).forEach(function (item) { %>
+ *   <%- item.name %> (<%- item.url %>)
+     <% }); %>
+ * @version <%- version %>
+     <% var now = new Date() %>
+ * @date <%- [
+      now.getFullYear(),
+      now.getMonth() + 101,
+      now.getDate() + 100
+    ].join('-').replace(/-1/g, '-') %>
+ * @license <%- license %>
  */
+/*</jdists>*/
 /**
  * 比较大的概率上，生成唯一 ID
  *
@@ -33,6 +44,7 @@
       return prefix + Date.now().toString(36) + (guid++ % 36).toString(36) + Math.random().toString(36).slice(2, 4) + suffix
     }
   })() /*</function>*/
+
   export {
     newGuid
   }
