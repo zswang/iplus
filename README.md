@@ -13,10 +13,14 @@ Timestamp based GUID
 var guid = iplus.newGuid();
 ```
 
-### 获取新 ID，加前缀
+### 获取新 ID，扩展用法
 
 ```js
-var guid = iplus.newGuid('wx');
+var guid = iplus.newGuid({
+	starts: 1504966589797,
+	hash: true,
+	upper: true,
+});
 ```
 
 ## License
