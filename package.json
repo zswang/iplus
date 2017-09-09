@@ -1,7 +1,7 @@
 {
   "name": "iplus",
   "description": "Timestamp based GUID.",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "homepage": "http://github.com/zswang/iplus",
   "main": "lib/iplus",
   "typings": "lib/iplus.d.ts",
