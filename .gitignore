@@ -30,3 +30,4 @@ node_modules
 bower_components
 coverage
 debug
+package-lock.json

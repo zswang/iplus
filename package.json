@@ -1,7 +1,7 @@
 {
   "name": "iplus",
   "description": "Timestamp based GUID.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "http://github.com/zswang/iplus",
   "main": "lib/iplus",
   "typings": "lib/iplus.d.ts",
@@ -23,16 +23,16 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-examplejs": "0.0.9",
     "gulp-jdists": "^2.0.17",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-typescript": "^3.1.6",
     "gulp-uglify": "^2.1.2",
-    "istanbul": "^0.3.17",
+    "istanbul": "^0.4.5",
     "merge2": "^1.1.0",
-    "mocha": "^2.0.1",
+    "mocha": "^5.2.0",
     "should": "^4.1.0",
     "typescript": "^2.0.3",
     "uglify-js": "^2.4.15"

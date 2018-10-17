@@ -5,8 +5,8 @@
  * Timestamp based GUID.
  * @author
  *   zswang (http://weibo.com/zswang)
- * @version 1.0.0
- * @date 2017-09-09
+ * @version 1.0.1
+ * @date 2018-10-17
  * @license MIT
  */
 /**
@@ -61,27 +61,37 @@ export interface GuidParams {
     }
   ```
   */
-let newGuid = (function () {
+let newGuid = (function() {
   let guid = Math.floor(Math.random() * 36)
-  return function newGuid(params: GuidParams): string {
-    params = params || {}
+  return function newGuid(params: GuidParams = {}): string {
     params.starts = params.starts || 0
-    let data = (Date.now() - params.starts).toString(36) + (guid++ % 36).toString(36) + (Math.random()).toString(36).slice(-2)
+    let data =
+      (Date.now() - params.starts).toString(36) +
+      (guid++ % 36).toString(36) +
+      Math.random()
+        .toString(36)
+        .slice(-2)
     if (params.hash) {
-      data += (data.split('').map((char) => {
-        return parseInt(char, 36)
-      }).reduce((previous, current) => {
-        return previous ^ current
-      }) % 36).toString(36)
+      data += (
+        data
+          .split('')
+          .map(char => {
+            return parseInt(char, 36)
+          })
+          .reduce((previous, current) => {
+            return previous ^ current
+          }) % 36
+      ).toString(36)
     }
     if (params.upper) {
-      data = data.split('').map((char) => {
-        return Math.random() > 0.5 ? char.toUpperCase() : char
-      }).join('')
+      data = data
+        .split('')
+        .map(char => {
+          return Math.random() > 0.5 ? char.toUpperCase() : char
+        })
+        .join('')
     }
     return data
   }
 })() /*</function>*/
-export {
-  newGuid
-}
+export { newGuid }

@@ -4,8 +4,8 @@
  * Timestamp based GUID.
  * @author
  *   zswang (http://weibo.com/zswang)
- * @version 1.0.0
- * @date 2017-09-09
+ * @version 1.0.1
+ * @date 2018-10-17
  * @license MIT
  */
 /**
@@ -60,5 +60,5 @@ export interface GuidParams {
     }
   ```
   */
-declare let newGuid: (params: GuidParams) => string;
+declare let newGuid: (params?: GuidParams) => string;
 export { newGuid };
